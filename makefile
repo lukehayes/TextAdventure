@@ -1,5 +1,6 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -I./include
+CXX = clang++
+CXXFLAGS = -std=c++20 -Iinclude
 SRC_DIR = src
 LDFLAGS = -L.
 OUTPUT = -o bin/app
