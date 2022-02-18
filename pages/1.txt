@@ -1,0 +1,7 @@
+You are standing in a long corridor.
+There are many different doors on each side.
+What do you do?
+
+[W]alk down the corridor.
+[L]eave the game.
+[S]omething else.
