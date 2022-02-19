@@ -5,8 +5,6 @@
 #include <fstream>
 #include <regex>
 
-using VecStr = std::vector<std::string>;
-
 std::string ReadFile(const std::string& filename)
 {
     std::string fileContents;
