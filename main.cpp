@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-#include <stdlib.h>
+#include "Common.h"
 #include "io.h"
 
 int main()

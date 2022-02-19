@@ -1,10 +1,8 @@
 #ifndef TA_IO_H
 #define TA_IO_H
 
-#include <iostream>
-#include <string>
+#include "Common.h"
 #include <fstream>
-#include <vector>
 #include <regex>
 
 using VecStr = std::vector<std::string>;
