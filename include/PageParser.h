@@ -11,13 +11,13 @@ using VecStoryBlock = std::vector<StoryBlock>;
 /**
  * Get all of the possible choices for the current story page
  */
-VecStr GetStoryChoices()
+VecStr GetStoryChoices(const std::string& filename)
 {
     VecStr choices;
 
-    std::string str = ReadFile("pages/1.txt");
+    std::string str = ReadFile(filename);
     std::smatch match;
-    std::regex r("(\\[[A-Z]\\])"); // Grab the capital letter in "[W]alk"
+    std::regex r("\\[([A-Z])\\]"); // Grab the capital letter in "[W]alk"
 
     auto const_iter = str.cbegin();
 
@@ -25,7 +25,11 @@ VecStr GetStoryChoices()
     while(std::regex_search(const_iter, str.cend(), match, r))
     {
         const_iter = match.suffix().first;
-        choices.push_back(match.str());
+        std::cout << "------" << std::endl;
+        std::cout << match.str() << std::endl;
+        std::cout << match.str(1) << std::endl;
+        std::cout << "------" << std::endl;
+        choices.push_back(match.str(1));
     }
 
     return choices;
@@ -34,11 +38,11 @@ VecStr GetStoryChoices()
 /**
  * Get all of the possible choices for the current story page
  */
-VecStr GetChoiceStrings()
+VecStr GetChoiceStrings(const std::string& filename)
 {
     VecStr choices;
 
-    std::string str = ReadFile("pages/1.txt");
+    std::string str = ReadFile(filename);
     std::smatch match;
     std::regex r("\\[[A-Z]\\]\\w+.+"); // Grab all the text of the option.
 
@@ -56,11 +60,11 @@ VecStr GetChoiceStrings()
 /**
  * Get the next possible page from the choices.
  */
-VecStr GetNextPage()
+VecStr GetNextPage(const std::string& filename)
 {
     VecStr choices;
 
-    std::string str = ReadFile("pages/1.txt");
+    std::string str = ReadFile(filename);
     std::smatch match;
     std::regex r("\\[#([A-Za-z]+)\\]"); // Grab next page '[#NextPage]'
                                      //
