@@ -13,7 +13,7 @@ $(OBJ)/%.o: src/%.cpp
 	$(CXX) $(CXXFLAGS) -c $^ -o $@
 
 all: $(OBJS)
-	$(CXX) $(CXXFLAGS) $(ENTRY) $(OUTPUT)
+	$(CXX) $(CXXFLAGS) $(ENTRY) $^ $(OUTPUT)
 
 
 # Cleanup
