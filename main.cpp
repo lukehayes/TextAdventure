@@ -36,6 +36,12 @@ int main()
             system("clear");
             continue;
         }
+        if(input == "h" || input == "help")
+        {
+            system("clear");
+            std::cout << "Showing Help..." << std::endl;
+            continue;
+        }
     }
 
     std::cout << "Goodbye." << std::endl;
