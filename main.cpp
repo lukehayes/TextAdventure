@@ -1,5 +1,7 @@
 #include "Common.h"
 #include "io.h"
+#include "PageParser.h"
+#include "Room.h"
 
 int main()
 {
@@ -8,13 +10,19 @@ int main()
     std::string input;
 
     std::string file = ReadFile("pages/1.txt");
-    std::cout << file << std::endl;
-    
-    for(auto choice : GetStoryChoices())
+
+    file.resize(98);
+
+    Room a(
+            file, 
+            GetStoryChoices(),
+            GetChoiceStrings(),
+            GetNextPage()
+   );
+
+    for(auto choice : a.getNextRooms())
     {
-        static int i = 1;
-        std::cout << i << ": " << choice  << std::endl;
-        i++;
+        std::cout << choice << std::endl;
     }
 
 
