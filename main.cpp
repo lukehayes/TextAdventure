@@ -2,6 +2,7 @@
 #include "io.h"
 #include "PageParser.h"
 #include "Room.h"
+#include <algorithm>
 
 int main()
 {
@@ -9,33 +10,57 @@ int main()
     std::cout << "Welcome." << std::endl;
     std::string input;
 
-    std::string file = ReadFile("pages/1.txt");
+    std::string file = "pages/1.txt";
+    std::string contents = ReadFile("pages/1.txt");
 
-    file.resize(98);
+    contents.resize(98);
 
     Room a(
-            file, 
-            GetStoryChoices(),
-            GetChoiceStrings(),
-            GetNextPage()
+            contents, 
+            GetStoryChoices(file),
+            GetChoiceStrings(file),
+            GetNextPage(file)
    );
-
-    for(auto choice : a.getNextRooms())
-    {
-        std::cout << choice << std::endl;
-    }
-
 
     while(input != "q")
     {
+        std::cout << a.getDescription() << std::endl;
+
+
+        for(auto choice : a.getChoiceStrings())
+        {
+            std::cout << choice << std::endl;
+        }
+
         std::cin >> input;
-        std::cout << "Said: " << input << std::endl;
+
+
+        auto it = std::find(a.getChoiceStrings().begin(), a.getChoiceStrings().end(), input);
+
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+        std::cout << *it << std::endl;
+
+
+
+
 
         if(input == "n")
         {
             system("clear");
             continue;
         }
+
         if(input == "h" || input == "help")
         {
             system("clear");
